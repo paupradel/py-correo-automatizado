@@ -26,14 +26,18 @@ Para familiarizarse con el uso de las API's de Google usando Python, se puede re
 1. [Clona](https://git-scm.com/docs/git-clone) este repositorio en tu computadora e instala las dependencias.
 2. Instala las dependencias según lo recomentado en la sección anterior.
 
-## Usar las API's de Google
+## Configurar la API de Google drive por primera vez
 3. [Crea un proyecto](https://developers.google.com/workspace/guides/create-project) en la consola de 
 desarrolladorxs de Google y dale un nombre.
 4. [Habilita las API's](https://developers.google.com/workspace/guides/enable-apis) de Google necesarias. En este 
 proyecto se necesitan las API's de Google Drive y de Gmail.
-5. [Autoriza el uso de tu aplicación, crea y obtén las credenciales](https://console.cloud.google.com/apis/credentials) 
+5. [Autoriza el uso de tu aplicación, crea y las credenciales](https://console.cloud.google.com/apis/credentials) 
 para tu proyecto.
-7. Coloca el archivo 
+7. Baja de la consola de tu proyecto el archivo `.JSON` que contiene las credenciales y colócalo en la carpeta
+`/credenciales`. Le puedes dar el nombre que tu quieras, pero por default aquí este archivo 
+se llama `credenciales.json`. Si deseas cambiarle el nombre, puedes ir a `autenticacion.py` y modificar la variable 
+`archivo_credenciales`.
+8. Corre el archivo `autenticacion.py`, haciendo `python autenticacion.py`. 
 
 ## 
 

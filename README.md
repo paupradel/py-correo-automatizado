@@ -14,9 +14,8 @@ virtual para el uso de este proyecto y evitar la instalación de los requerimien
 
 En este proyecto se usa `Python 3.10` y sus dependencias principales se listan a continuación:
 
-- [Pandas]()
-- [API de Google Drive]()
-- [API de Gmail]()
+- [Pandas](https://pandas.pydata.org/)
+- [Biblioteca cliente de la API de Google](https://github.com/googleapis/google-api-python-client)
 
 Para familiarizarse con el uso de las API's de Google usando Python, se puede realizar este 
 [ejercicio de codelab en google](http://g.co/codelabs/gsuite-apis-intro).

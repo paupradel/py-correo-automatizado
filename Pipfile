@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 pandas = "*"
 rich = "*"
+google-api-python-client = "*"
+oauth2client = "*"
 
 [dev-packages]
 

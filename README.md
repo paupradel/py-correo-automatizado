@@ -20,10 +20,22 @@ En este proyecto se usa `Python 3.10` y sus dependencias principales se listan a
 Para familiarizarse con el uso de las API's de Google usando Python, se puede realizar este 
 [ejercicio de codelab en google](http://g.co/codelabs/gsuite-apis-intro).
 
-# Uso
+# Instalación e instrucciones
 
+## Inicio
 1. [Clona](https://git-scm.com/docs/git-clone) este repositorio en tu computadora e instala las dependencias.
 2. Instala las dependencias según lo recomentado en la sección anterior.
+
+## Usar las API's de Google
+3. [Crea un proyecto](https://developers.google.com/workspace/guides/create-project) en la consola de 
+desarrolladorxs de Google y dale un nombre.
+4. [Habilita las API's](https://developers.google.com/workspace/guides/enable-apis) de Google necesarias. En este 
+proyecto se necesitan las API's de Google Drive y de Gmail.
+5. [Autoriza el uso de tu aplicación, crea y obtén las credenciales](https://console.cloud.google.com/apis/credentials) 
+para tu proyecto.
+7. Coloca el archivo 
+
+## 
 
 
 # API's de Google

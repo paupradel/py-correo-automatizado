@@ -33,28 +33,30 @@ Dentro de la documentación de la API de Google Drive se encuentra este
 las credenciales para tu aplicación, crear un proyecto en la consola de desarrolladorxs de Google, aprender acerca de
 las [bibliotecas cliente de la API de Google](https://developers.google.com/api-client-library/), entre otra cosas.
 
+#### Los `scopes`
+
 Dependiendo de lo que necesites trabajar u obtener de las diferentes API's de Google es a como vas a configurar unas 
-variables llamas `SCOPES`. En este proyecto existe un archivo llamado `autenticacion.py` que tendrás que ejecutar la 
+variables llamas `scopes`. En este proyecto existe un archivo llamado `autenticacion.py` que tendrás que ejecutar la 
 primera vez que uses este código para que le des permiso a tu cuenta de google de acceder a este proyecto (aplicación 
-web). En este archivo modificarás los `SCOPES`, que para este proyecto lucen así:
+web). En este archivo modificarás los `scopes`, que para este proyecto lucen así:
 
 ```python
-SCOPES = 'https://www.googleapis.com/auth/drive.readonly.metadata https://www.googleapis.com/auth/gmail.compose'
+scopes = 'https://www.googleapis.com/auth/drive.readonly.metadata https://www.googleapis.com/auth/gmail.compose'
 ```
 
 En el primer scope, estamos pidiendo permiso para ver los metadatos de los archivos que se encuentran en Google Drive, y 
 en el segundo scope se esta pidiendo permiso para crear, leer, actualizar y eliminar borradores, así como enviar 
 mensajes y borradores.
 
-Los `SCOPES` completos de la API de Google Drive los puedes encontrar 
+Los `scopes` completos de la API de Google Drive los puedes encontrar 
 [aquí](https://developers.google.com/drive/api/guides/api-specific-auth) y los de la API de Gmail
 [acá](https://developers.google.com/gmail/api/auth/scopes).
 
-Puedes agregar la cantidad de `SCOPES` que necesites a la variable, sin embargo es necesario tener cuidado pues estás 
+Puedes agregar la cantidad de `scopes` que necesites a la variable, sin embargo es necesario tener cuidado pues estás 
 dando potencial acceso de datos sensibles a una aplicacióne externa. Te recomiendo que verifiques muy bien en la 
 documentación el tipo de uso (Recomendado, Sensible y Restringido) que tiene cada `SCOPE`.
 
-Cabe mencionar que los `SCOPES` usados aquí están marcados con `Restringido`, por lo que la primera vez que se
+Cabe mencionar que los `scopes` usados aquí están marcados con `Restringido`, por lo que la primera vez que se
 abra la ventana en tu navegador para dar permiso a la aplicación te aparecerá un advertencia de que esta aún no está
 verificada. Esto es porque Google requiere que se lleve a cabo un proceso de verificación cuando las aplicaciones web
 accesan a ciertos datos sensibles para el usuario. Dado que tu como persona usuaria estas construyendo tu propia 
@@ -94,16 +96,25 @@ desarrolladorxs de Google y dale un nombre.
 proyecto se necesitan las API's de Google Drive y de Gmail.
 5. [Autoriza el uso de tu aplicación, crea las credenciales](https://console.cloud.google.com/apis/credentials) 
 para tu proyecto.
-7. Baja de la consola de tu proyecto el archivo `.JSON` que contiene las credenciales y colócalo en la carpeta
+6. Baja de la consola de tu proyecto el archivo `.JSON` que contiene las credenciales y colócalo en la carpeta
 `/credenciales`. Le puedes dar el nombre que tu quieras, pero por default aquí este archivo 
 se llama `credenciales.json`. Si deseas cambiarle el nombre, puedes ir a `autenticacion.py` y modificar la variable 
 `archivo_credenciales`.
-8. Crea en la carpeta `/credenciales` un archivo de nombre `storage.json`. En este archivo se guardará el token de
+7. Crea en la carpeta `/credenciales` un archivo de nombre `storage.json`. En este archivo se guardará el token de
 acceso una vez que autorices el uso de la aplicación web. Este archivo junto con el `credenciales.json` y toda 
-la carpeta `/credenciales` están marcados en el `.gitignore` para no ser subidos al repositorio de github.
-8. Corre el archivo `autenticacion.py`, haciendo `python autenticacion.py`. 
+la carpeta `/credenciales` están marcados en el `.gitignore` para no ser subidos al repositorio de github. Cada vez 
+que agregues o modifiques los `scopes` en el archivo `autenticacion.py` es necesario que borres el archivo 
+`storage.json` y vuelvas a correr la autenticación.
+8. Corre el archivo `autenticacion.py`, haciendo `python autenticacion.py`. Se abrirá una ventana en tu navegador que 
+mostrará una advertencia (ir a la sección de `scopes` más arriba para conocer más) o bien te pedirá que des permiso 
+con tu cuenta de Google a los `scopes` utilizados.
+9. Si todo salió correctamente en la misma ventana de tu navegador aparecerá un mensaje que indicará que la 
+autenticación fue exitosa. También en tu consola aparecerá una lista de los primeros 10 archivos que se encuentran en 
+tu Google Drive (creados, abiertos, o compartidos por y hacia ti).
 
-## 
+
+### Ejecutar la aplicación para mandar _N_ mails
+10. 
 
 
 

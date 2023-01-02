@@ -1,7 +1,7 @@
 .idea/
 
-/datos
 /credenciales
+/servicios/datos
 
 storage.json
 credenciales.json

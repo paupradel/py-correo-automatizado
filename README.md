@@ -110,7 +110,8 @@ que agregues o modifiques los `scopes` en el archivo `autenticacion.py` es neces
 `storage.json` y vuelvas a correr la autenticación.
 8. Corre el archivo `autenticacion.py`, haciendo `python autenticacion.py`. Se abrirá una ventana en tu navegador que 
 mostrará una advertencia (ir a la sección de `scopes` más arriba para conocer más) o bien te pedirá que des permiso 
-con tu cuenta de Google a los `scopes` utilizados.
+con tu cuenta de Google a los `scopes` utilizados. El script `autenticacion.py` es una adaptación del código mostrado en 
+este [Google codelab](http://g.co/codelabs/gsuite-apis-intro).
 9. Si todo salió correctamente en la misma ventana de tu navegador aparecerá un mensaje que indicará que la 
 autenticación fue exitosa. También en tu consola aparecerá una lista de los primeros 10 archivos que se encuentran en 
 tu Google Drive (creados, abiertos, o compartidos por y hacia ti).

@@ -1,6 +1,7 @@
 import pandas as pd
 
 import os
+import time
 
 import google.auth
 
@@ -8,22 +9,32 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from oauth2client import file
 from email.message import EmailMessage
+from rich import print
 
+print("[bold cyan1]¿Listx para enviar correos automatizados?[/bold cyan1]")
+print("[bold cyan1]¡Pues vamos![/bold cyan1]")
+
+time.sleep(2.5)
 
 # Autenticación y apertura de sesión en Google Drive y Gmail
-
 store = file.Storage(os.path.join('credenciales', 'storage.json'))
 credenciales = store.get()
 
+# Se llaman a las API's
 gmail = build('gmail', 'v1', credentials=credenciales)
 drive = build('drive', 'v3', credentials=credenciales)
+
+print("")
+print("[green3]Autenticación en Google finalizada[/green3]")
 
 archivos = drive.files().list(pageSize=10).execute().get('files', [])
 for archivo in archivos:
     print(archivo['name'])
 
-
 # Obtención del archivo de google drive
+
+print("")
+print("[green3]Obteniendo archivo con datos[green3]")
 
 # datos = 'intercambio_dai_2022.xlsx'
 

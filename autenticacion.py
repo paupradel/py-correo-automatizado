@@ -9,13 +9,12 @@ from oauth2client import file, client, tools
 donde_credenciales = os.path.join('credenciales')
 archivo_credenciales = 'credenciales.json'
 
-SCOPES = ('https://www.googleapis.com/auth/drive.readonly.metadata',
-          'https://www.googleapis.com/auth/gmail')
+SCOPES = 'https://www.googleapis.com/auth/drive.readonly.metadata https://www.googleapis.com/auth/gmail.compose'
 store = file.Storage(os.path.join(donde_credenciales, 'storage.json'))
 credenciales = store.get()
 
 if not credenciales or credenciales.invalid:
-    flow = client.flow_from_clientsecrets(os.path.join(donde_credenciales, archivo_credenciales, SCOPES))
+    flow = client.flow_from_clientsecrets(os.path.join(donde_credenciales, archivo_credenciales), SCOPES)
     credenciales = tools.run_flow(flow, store)
 DRIVE = discovery.build('drive', 'v3', http=credenciales.authorize(Http()))
 

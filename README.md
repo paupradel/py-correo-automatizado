@@ -39,8 +39,7 @@ primera vez que uses este código para que le des permiso a tu cuenta de google 
 web). En este archivo modificarás los `SCOPES`, que para este proyecto lucen así:
 
 ```python
-SCOPES = ('https://www.googleapis.com/auth/drive.readonly.metadata',
-          'https://www.googleapis.com/auth/gmail.compose')
+SCOPES = 'https://www.googleapis.com/auth/drive.readonly.metadata https://www.googleapis.com/auth/gmail.compose'
 ```
 
 En el primer scope, estamos pidiendo permiso para ver los metadatos de los archivos que se encuentran en Google Drive, y 
@@ -55,6 +54,15 @@ Puedes agregar la cantidad de `SCOPES` que necesites a la variable, sin embargo 
 dando potencial acceso de datos sensibles a una aplicacióne externa. Te recomiendo que verifiques muy bien en la 
 documentación el tipo de uso (Recomendado, Sensible y Restringido) que tiene cada `SCOPE`.
 
+Cabe mencionar que los `SCOPES` usados aquí están marcados con `Restringido`, por lo que la primera vez que se
+abra la ventana en tu navegador para dar permiso a la aplicación te aparecerá un advertencia de que esta aún no está
+verificada. Esto es porque Google requiere que se lleve a cabo un proceso de verificación cuando las aplicaciones web
+accesan a ciertos datos sensibles para el usuario. Dado que tu como persona usuaria estas construyendo tu propia 
+aplicación web en la consola de Google y a este código le estás dando acceso a tu cuenta de Google, no debería de 
+haber ningún problema. Bajo ninguna circunstancia al correr esta aplicación yo como autora del código tendré acceso a 
+tus datos. Es posible que en un futuro someta esta aplicación web a verificación, simplemente por trámite administrativo 
+y para que ya no aparezca la ventana de advertencia. Para aprender más acerca de la verificación de las aplicaciones 
+web externas, puedes ir a [este enlace](https://support.google.com/cloud/answer/10311615#verification-status).
 
 
 ## Requerimientos
@@ -90,6 +98,9 @@ para tu proyecto.
 `/credenciales`. Le puedes dar el nombre que tu quieras, pero por default aquí este archivo 
 se llama `credenciales.json`. Si deseas cambiarle el nombre, puedes ir a `autenticacion.py` y modificar la variable 
 `archivo_credenciales`.
+8. Crea en la carpeta `/credenciales` un archivo de nombre `storage.json`. En este archivo se guardará el token de
+acceso una vez que autorices el uso de la aplicación web. Este archivo junto con el `credenciales.json` y toda 
+la carpeta `/credenciales` están marcados en el `.gitignore` para no ser subidos al repositorio de github.
 8. Corre el archivo `autenticacion.py`, haciendo `python autenticacion.py`. 
 
 ## 

@@ -92,6 +92,7 @@ Para familiarizarse con el uso de las API's de Google usando Python, se puede re
 ### Configurar la API de Google drive por primera vez
 
 Lo descrito en esta sección sólo es necesario ejectuarlo una sola vez para dar permisos a la aplicación.
+
 3. [Crea un proyecto](https://developers.google.com/workspace/guides/create-project) en la consola de 
 desarrolladorxs de Google y dale un nombre.
 4. [Habilita las API's](https://developers.google.com/workspace/guides/enable-apis) de Google necesarias. En este 

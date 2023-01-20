@@ -124,6 +124,7 @@ tu Google Drive (creados, abiertos, o compartidos por y hacia ti).
 - Los mimetaips
 - Se baja el archivo
 
+- Me falta poner los docstrings en las funciones
 
 # Contacto
 

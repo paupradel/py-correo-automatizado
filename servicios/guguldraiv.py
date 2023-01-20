@@ -58,12 +58,22 @@ def bajar_datos(nombre, drive):
 
 def buscar_archivo(nombre, drive):
 
-    variable_nombre = 'name=' + '"' + nombre + '"'
-    archivo = drive.files().list(q=variable_nombre,
-                                 fields='files(id, name, mimeType)',
-                                 pageToken=None).execute().get('files', [])
-    mimetaip = archivo[0]['mimeType']
-    archivo_id = archivo[0]['id']
+    try:
+        variable_nombre = 'name=' + '"' + nombre + '"'
+        archivo = drive.files().list(q=variable_nombre,
+                                     fields='files(id, name, mimeType)',
+                                     pageToken=None).execute().get('files', [])
+        mimetaip = archivo[0]['mimeType']
+        archivo_id = archivo[0]['id']
+
+    except IndexError as error:
+        print("[red1]   :no_entry:  Ese archivo no existe D:[/red1]")
+        print("[red1]      Verifica el nombre[/red1]")
+        print("")
+        print("[magenta3 bold]Baaaiiii, ¡vuelva pronto! :D[/magenta3 bold]")
+        mimetaip = None
+        archivo_id = None
+        exit()
 
     return mimetaip, archivo_id
 

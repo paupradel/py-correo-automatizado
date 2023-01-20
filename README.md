@@ -67,13 +67,24 @@ tus datos. Es posible que en un futuro someta esta aplicación web a verificaci�
 y para que ya no aparezca la ventana de advertencia. Para aprender más acerca de la verificación de las aplicaciones 
 web externas, puedes ir a [este enlace](https://support.google.com/cloud/answer/10311615#verification-status).
 
+#### Los `MIME Type`
+
+Lo anterior depende directamente de como la API de Google Drive exporta los archivos almacenados en la nube. Para que
+se haga de manera correcta es necesario establecer el
+[MIME Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) adecuado de los archivos. Dejo
+los enlaces de los tipos de MIME Type, dependiendo si son archivos del _Google Workspace_ o no:
+
+    - [_Google Workspace_ MIME Type](https://developers.google.com/drive/api/guides/ref-export-formats) 
+    (Google Docs, Google Spreadsheets, etc.) 
+    - [MIME Type de otros formatos que soporta Google Drive](https://developers.google.com/drive/api/guides/mime-types) 
+    (.xlsx, .csv, .doc, .pdf, etc.)
 
 ## Requerimientos
 
 Por medio del archivo `Pipfile` o el `requirements.txt` es posible instalar las dependencias de este proyecto. Para 
 usar el `Pipfile` es necesario tener instalado [Pipenv](https://pipenv.pypa.io/en/latest/) y crear un ambiente 
 virtual como se indique en la documentación. El archivo `requirements.txt` se puede utilizar con cualquier otra 
-herramienta para crear ambientes virtuales de Python. De cualquier manera es muy recomendable crear un ambiente 
+herramienta para crear ambientes virtuales de Python. Es muy recomendable trabajar dentro de un ambiente 
 virtual para el uso de este proyecto y evitar la instalación de los requerimientos de manera global. 
 
 En este proyecto se usa `Python 3.10` y sus dependencias principales se listan a continuación:
@@ -120,11 +131,26 @@ tu Google Drive (creados, abiertos, o compartidos por y hacia ti).
 
 ### Ejecutar la aplicación para mandar _N_ mails
 
-- Se pone el nombre del archivo
-- Los mimetaips
-- Se baja el archivo
+10. En el script `aplicacion.py` establece el nombre de la variable `nombre`, colocando el nombre del archivo 
+almacenado en Google Drive y en donde se encuentran los datos que van a componer el cuerpo de los correos electrónicos 
+que deseas mandar. Esta variable es una cadena de texto. Por default en este script `nombre = ''`, es decir una 
+cadena de texto vacía. Si no cambias la variable te aparecerá un mensaje de advertencia para que lo modifiques.
+Los tipos de archivo que acepta esta aplicación son:
 
-- Me falta poner los docstrings en las funciones
+    - Coma Separated Value (csv)
+    - Hoja de cálculo de Microsoft Excel (xlsx)
+    - Hoja de cálculo en formato abierto (puede que no todos los formatos funcionen)
+    - Spreadsheet de Google Spreadsheets
+
+    En el caso de los primeros tres tipos el nombre del archivo lo debes ingresar incluyendo la extensión del mismo, es 
+decir `ejemplo_archivo.csv` o bien `ejemplo_archivo.xlsx`. Para los Google Spreadsheets solo ingresa el nombre del 
+archivo, es decir `ejemplo_archivo`. Para conocer más acerca de como modificar los tipos de archivo que puede aceptar 
+esta aplicación ve a la sub sección **MIME Type** de esta documentación.
+
+
+
+
+
 
 # Contacto
 

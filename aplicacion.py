@@ -35,12 +35,21 @@ print("[green3]Autenticación en Google finalizada[/green3]")
 
 print("[green3]Obteniendo archivo con datos[/green3]")
 
+nombre = ''
 # nombre = 'intercambio_dai_2022'
 # nombre = '210802ReporteTendenciaSemanal.pdf'
 # nombre = 'limipio_tiraderos_clandestinos.csv'
 # nombre = 'diccionario_tiraderos_cdmx.xlsx'
-nombre = 'EsferaGigante.xlsx'
+# nombre = 'EsferaGigante.xlsx'
 # nombre = 'Esferagiganteeeee.xlsx'
+
+if nombre == '':
+    print("[red1]   :no_entry:  No has cambiado la variable [italic]nombre[/italic] D:[/red1]")
+    print("")
+    print("[magenta3 bold]Baaaiiii, ¡vuelva pronto! :D[/magenta3 bold]")
+    exit()
+
+
 
 
 bajar_datos(nombre, drive)

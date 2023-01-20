@@ -69,15 +69,17 @@ web externas, puedes ir a [este enlace](https://support.google.com/cloud/answer/
 
 #### Los `MIME Type`
 
-Lo anterior depende directamente de como la API de Google Drive exporta los archivos almacenados en la nube. Para que
+Un [MIME Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) es un estándar que define 
+el tipo de archivo y su formato. Lo anterior depende directamente de como la API de Google Drive exporta los archivos almacenados en la nube. Para que
 se haga de manera correcta es necesario establecer el
-[MIME Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) adecuado de los archivos. Dejo
+ adecuado de los archivos. Dejo
 los enlaces de los tipos de MIME Type, dependiendo si son archivos del _Google Workspace_ o no:
 
     - [_Google Workspace_ MIME Type](https://developers.google.com/drive/api/guides/ref-export-formats) 
     (Google Docs, Google Spreadsheets, etc.) 
     - [MIME Type de otros formatos que soporta Google Drive](https://developers.google.com/drive/api/guides/mime-types) 
     (.xlsx, .csv, .doc, .pdf, etc.)
+
 
 ## Requerimientos
 
@@ -145,7 +147,8 @@ Los tipos de archivo que acepta esta aplicación son:
     En el caso de los primeros tres tipos el nombre del archivo lo debes ingresar incluyendo la extensión del mismo, es 
 decir `ejemplo_archivo.csv` o bien `ejemplo_archivo.xlsx`. Para los Google Spreadsheets solo ingresa el nombre del 
 archivo, es decir `ejemplo_archivo`. Para conocer más acerca de como modificar los tipos de archivo que puede aceptar 
-esta aplicación ve a la sub sección **MIME Type** de esta documentación.
+esta aplicación ve a la sub sección **Los MIME Type** de esta documentación.
+11. En el script 
 
 
 

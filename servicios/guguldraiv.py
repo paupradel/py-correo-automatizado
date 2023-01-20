@@ -66,7 +66,7 @@ def buscar_archivo(nombre, drive):
         mimetaip = archivo[0]['mimeType']
         archivo_id = archivo[0]['id']
 
-    except IndexError as error:
+    except IndexError:
         print("[red1]   :no_entry:  Ese archivo no existe D:[/red1]")
         print("[red1]      Verifica el nombre[/red1]")
         print("")

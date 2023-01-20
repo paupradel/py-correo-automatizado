@@ -33,7 +33,7 @@ def bajar_datos(nombre, drive):
         mimetype_exportar = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
         request = drive.files().export_media(fileId=archivo_id,
                                              mimeType=mimetype_exportar)
-        path_archivo = os.path.join('servicios', 'datos', nombre + '.xlsx')
+        path_archivo = os.path.join('datos', nombre + '.xlsx')
 
         with open(path_archivo, 'wb') as archivo:
             archivo.write(bajar_archivo(request))
@@ -42,7 +42,7 @@ def bajar_datos(nombre, drive):
 
     elif mimetaip in mimetypes_spreadsheets:
         request = drive.files().get_media(fileId=archivo_id)
-        path_archivo = os.path.join('servicios', 'datos', nombre)
+        path_archivo = os.path.join('datos', nombre)
 
         with open(path_archivo, 'wb') as archivo:
             archivo.write(bajar_archivo(request))

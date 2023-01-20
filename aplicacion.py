@@ -39,8 +39,8 @@ print("[green3]Obteniendo archivo con datos[/green3]")
 # nombre = '210802ReporteTendenciaSemanal.pdf'
 # nombre = 'limipio_tiraderos_clandestinos.csv'
 # nombre = 'diccionario_tiraderos_cdmx.xlsx'
-# nombre = 'EsferaGigante.xlsx'
-nombre = 'Esferagiganteeeee.xlsx'
+nombre = 'EsferaGigante.xlsx'
+# nombre = 'Esferagiganteeeee.xlsx'
 
 
 bajar_datos(nombre, drive)

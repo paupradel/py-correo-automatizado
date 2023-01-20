@@ -1,8 +1,9 @@
 .idea/
 __pycache__
 
+/servicios/__pycache__/
 /credenciales
-/servicios/datos
+/datos
 
 storage.json
 credenciales.json

@@ -1,5 +1,7 @@
 import io
 import os
+
+from rich import print
 from googleapiclient.http import MediaIoBaseDownload
 
 
@@ -20,71 +22,50 @@ def bajar_datos(nombre, drive):
 
     """
 
-    mimetaip, id = buscar_archivo(nombre, drive)
+    mimetypes_spreadsheets = ['text/csv',
+                              'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                              'application/x-vnd.oasis.opendocument.spreadsheet',
+                              'application/wps-office.xlsx']
 
-    print("hasta aqui si jala")
-    print(mimetaip)
-    print(id)
+    mimetaip, archivo_id = buscar_archivo(nombre, drive)
 
     if mimetaip == 'application/vnd.google-apps.spreadsheet':
-        request = drive.files().export_media(fileId=id, mimeType='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+        mimetype_exportar = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        request = drive.files().export_media(fileId=archivo_id,
+                                             mimeType=mimetype_exportar)
         path_archivo = os.path.join('servicios', 'datos', nombre + '.xlsx')
 
         with open(path_archivo, 'wb') as archivo:
             archivo.write(bajar_archivo(request))
-        print("google spreadsheets abajo")
+        print('[green3]   :arrow_right: Se obtuvo el archivo[/green3] ' +
+              '[green3 italic]' + nombre + '.xlsx' + '[/green3 italic]')
 
-    elif mimetaip == 'text/plain' or mimetaip == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
-        request = drive.files().get_media(fileID=id, mimeType = mimetaip)
-        if 'csv' in nombre:
-            print("aun no")
-        else:
-            print("[]Este tipo de archivo no es válido D:[]")
-            print("[]Intenta de nuevo con un xlsx o un csv[]")
-            print("[]Baaaiiii, ¡vuelva pronto! :D[]")
+    elif mimetaip in mimetypes_spreadsheets:
+        request = drive.files().get_media(fileId=archivo_id)
+        path_archivo = os.path.join('servicios', 'datos', nombre)
+
+        with open(path_archivo, 'wb') as archivo:
+            archivo.write(bajar_archivo(request))
+        print('[green3]   :arrow_right: Se obtuvo el archivo[/green3] '
+              + '[green3 italic]' + nombre + '[/green3 italic]')
+
     else:
-        print("[]Este tipo de archivo no es válido D:[]")
-        print("[]Intenta de nuevo con un xlsx o un csv[]")
-        print("[]Baaaiiii, ¡vuelva pronto! :D[]")
-        # archivo = io.BytesIO()
-        # downloader = MediaIoBaseDownload(archivo, request)
-        # done = False
-        # while done is False:
-        #     status, done = downloader.next_chunk()
-        #     print(F'Download {int(status.progress() * 100)}.')
-        # request = drive.files().export_media(fileId=id,
-        #                                      mimeType='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-        #
-        # file = io.BytesIO()
-        # downloader = MediaIoBaseDownload(file, request)
-        # done = False
-        # while done is False:
-        #     status, done = downloader.next_chunk()
-        #     print(F'Download {int(status.progress() * 100)}.')
-        # print(file.getvalue())
+        print("[red1]   :no_entry:  Este tipo de archivo no es válido D:[/red1]")
+        print("[red1]      Intenta de nuevo con un xlsx o un csv[/red1]")
+        print("")
+        print("[magenta3 bold]Baaaiiii, ¡vuelva pronto! :D[/magenta3 bold]")
 
-        #Hay que moverse al repo donde se desea bajar el contenido del archivo
-        # elif mimetaip == 'texto/plain' or mimetaip == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
-        #     if 'csv' in nombre:
-        #         print("aun no")
-        #     else:
-        #         print("[]Este tipo de archivo no es válido D:[]")
-        #         print("[]Intenta de nuevo con un xlsx o un csv[]")
-        #         print("[]Baaaiiii, ¡vuelva pronto! :D[]")
-        # else:
-        #     print("[]Este tipo de archivo no es válido D:[]")
-        #     print("[]Intenta de nuevo con un xlsx o un csv[]")
-        #     print("[]Baaaiiii, ¡vuelva pronto! :D[]")
 
 def buscar_archivo(nombre, drive):
 
-    archivo = drive.files().list(q='name=' + nombre,
-                               fields='files(id, name, mimeType)',
-                               pageToken=None).execute().get('files', [])
+    variable_nombre = 'name=' + '"' + nombre + '"'
+    archivo = drive.files().list(q=variable_nombre,
+                                 fields='files(id, name, mimeType)',
+                                 pageToken=None).execute().get('files', [])
     mimetaip = archivo[0]['mimeType']
-    id = archivo[0]['id']
+    archivo_id = archivo[0]['id']
 
-    return mimetaip, id
+    return mimetaip, archivo_id
 
 
 def bajar_archivo(request):
@@ -94,11 +75,6 @@ def bajar_archivo(request):
     done = False
     while done is False:
         status, done = downloader.next_chunk()
-        print(F'Download {int(status.progress() * 100)}.')
-
     archivo_obtenido = archivo_bits.getvalue()
 
     return archivo_obtenido
-
-
-

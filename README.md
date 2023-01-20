@@ -119,10 +119,10 @@ tu Google Drive (creados, abiertos, o compartidos por y hacia ti).
 
 
 ### Ejecutar la aplicación para mandar _N_ mails
-10. 
 
-
-
+- Se pone el nombre del archivo
+- Los mimetaips
+- Se baja el archivo
 
 
 # Contacto

@@ -36,7 +36,7 @@ print("[green3]Autenticación en Google finalizada[/green3]")
 print("")
 print("[green3]Obteniendo archivo con datos[green3]")
 
-nombre= 'intercambio_dai_2022'
+nombre= '"intercambio_dai_2022"'
 
 bajar_datos(nombre, drive)
 

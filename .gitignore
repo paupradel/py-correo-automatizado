@@ -1,4 +1,5 @@
 .idea/
+__pycache__
 
 /credenciales
 /servicios/datos

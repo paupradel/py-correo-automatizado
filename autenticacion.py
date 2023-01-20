@@ -6,7 +6,7 @@ from oauth2client import file, client, tools
 
 archivo_credenciales = 'credenciales.json'
 
-scopes = 'https://www.googleapis.com/auth/drive.readonly.metadata https://www.googleapis.com/auth/gmail.compose'
+scopes = 'https://www.googleapis.com/auth/drive.readonly.metadata https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/gmail.compose'
 store = file.Storage(os.path.join('credenciales', 'storage.json'))
 credenciales = store.get()
 

@@ -14,8 +14,9 @@ cada persona los resultados del sorteo, direcciones, etc. Así que aprovechando 
 google arrojan un spreadsheets de datos, se me ocurrió contruir esta aplicación aprovechando las bondades (o no) de las 
 API's de google.
 
-No sé si exista una manera más fácil de hacer esto y evitar la programación, pero de cualquier manera **este es un 
-excelente ejercicio para mi, y para seguir practicando mi python**.
+Seguramente existe una manera más fácil de hacer esto y evitar la programación, pero de cualquier manera **este es un 
+excelente ejercicio para mi, para aprender más y mejor acerca de las API's de gugul y para seguir practicando
+python**.
 
 Gracias si llegaste hasta aquí y espero que esta aplicación te sirva.
 
@@ -54,7 +55,7 @@ Los `scopes` completos de la API de Google Drive los puedes encontrar
 
 Puedes agregar la cantidad de `scopes` que necesites a la variable, sin embargo es necesario tener cuidado pues estás 
 dando potencial acceso de datos sensibles a una aplicacióne externa. Te recomiendo que verifiques muy bien en la 
-documentación el tipo de uso (Recomendado, Sensible y Restringido) que tiene cada `SCOPE`.
+documentación el tipo de uso (Recomendado, Sensible y Restringido) que tiene cada `scope`.
 
 Cabe mencionar que los `scopes` usados aquí están marcados con `Restringido`, por lo que la primera vez que se
 abra la ventana en tu navegador para dar permiso a la aplicación te aparecerá un advertencia de que esta aún no está
@@ -71,7 +72,7 @@ web externas, puedes ir a [este enlace](https://support.google.com/cloud/answer/
 
 Por medio del archivo `Pipfile` o el `requirements.txt` es posible instalar las dependencias de este proyecto. Para 
 usar el `Pipfile` es necesario tener instalado [Pipenv](https://pipenv.pypa.io/en/latest/) y crear un ambiente 
-virtual como se indique en la documentación. El archivo `requirments.txt` se puede utilizar con cualquier otra 
+virtual como se indique en la documentación. El archivo `requirements.txt` se puede utilizar con cualquier otra 
 herramienta para crear ambientes virtuales de Python. De cualquier manera es muy recomendable crear un ambiente 
 virtual para el uso de este proyecto y evitar la instalación de los requerimientos de manera global. 
 
@@ -86,7 +87,7 @@ Para familiarizarse con el uso de las API's de Google usando Python, se puede re
 ## Instalación e instrucciones
 
 ### Inicio
-1. [Clona](https://git-scm.com/docs/git-clone) este repositorio en tu computadora e instala las dependencias.
+1. [Clona](https://git-scm.com/docs/git-clone) este repositorio en tu computadora.
 2. Instala las dependencias según lo recomendado en la sección anterior.
 
 ### Configurar la API de Google drive por primera vez

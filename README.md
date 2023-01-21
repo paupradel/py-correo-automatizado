@@ -67,18 +67,35 @@ tus datos. Es posible que en un futuro someta esta aplicación web a verificaci�
 y para que ya no aparezca la ventana de advertencia. Para aprender más acerca de la verificación de las aplicaciones 
 web externas, puedes ir a [este enlace](https://support.google.com/cloud/answer/10311615#verification-status).
 
-#### Los `MIME Type`
+#### Los _MIME Type_
 
 Un [MIME Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) es un estándar que define 
-el tipo de archivo y su formato. Lo anterior depende directamente de como la API de Google Drive exporta los archivos almacenados en la nube. Para que
-se haga de manera correcta es necesario establecer el
- adecuado de los archivos. Dejo
-los enlaces de los tipos de MIME Type, dependiendo si son archivos del _Google Workspace_ o no:
+el tipo y formato de un archivo. Para poder descargar un archivo almacenado en Google Drive usando su API es necesario
+conocer su _MIME Type_. Esto es debido a que dependiendo de si un archivo pertenece al _Google Workspace_ (Google Docs, 
+Google Sheets, etc.) o tiene otro formato (pdf, csv, etc.) se usará un método u otro de la API para 
+[descargar o exportar](https://developers.google.com/drive/api/guides/manage-downloads) 
+el contenido del archivo por medio de la misma. Dentro del método usado será necesario especificar el 
+_MIME Type_ con el cuál se descargará o exportar el archivo. Por ejemplo, en el caso de que quiera descargar el 
+contenido de un Google Sheet, usaré el método 
+[`export_media()`](https://developers.google.com/drive/api/v3/reference/files/export) y especificaré en sus parámetros 
+que deseo exportarlo como un archivo de Microsoft Excel con extensión `.xlsx`, por medio del 
+_MIME Type_ `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`.
 
-    - [_Google Workspace_ MIME Type](https://developers.google.com/drive/api/guides/ref-export-formats) 
-    (Google Docs, Google Spreadsheets, etc.) 
-    - [MIME Type de otros formatos que soporta Google Drive](https://developers.google.com/drive/api/guides/mime-types) 
-    (.xlsx, .csv, .doc, .pdf, etc.)
+En la documentación de la API de Google Drive se listan los _MIME Type_ soportados de acuerdo a si pertenecen al
+_Google Workspace_ o no:
+
+- [_Google Workspace_ MIME Type](https://developers.google.com/drive/api/guides/ref-export-formats) 
+    (Google Docs, Google Sheets, etc.)
+- [MIME Type de otros formatos que soporta Google Drive](https://developers.google.com/drive/api/guides/mime-types) 
+(.xlsx, .csv, .doc, .pdf, etc.)
+
+En el script `guguldraiv.py` de la carpeta `servicios` de este proyecto es posible modificar o agregar los
+_MIME Type_ con los que se exportan o descargan los archivos. Dado que una de las funciones de este 
+proyecto es tener un listado de datos para con ello construir _N_ correos electrónicos, los archivos más comunes que 
+acepta la aplicación son aquellos con extensión .xlsx, .csv, o un Google Sheet. En caso de que el tipo de archivo 
+sea distinto, la aplicación te mandará un mensaje de error para que modifiques 
+
+# Explicar el if del mimetype en caso de que pertenezca a google o no
 
 
 ## Requerimientos
@@ -142,10 +159,10 @@ Los tipos de archivo que acepta esta aplicación son:
     - Coma Separated Value (csv)
     - Hoja de cálculo de Microsoft Excel (xlsx)
     - Hoja de cálculo en formato abierto (puede que no todos los formatos funcionen)
-    - Spreadsheet de Google Spreadsheets
+    - Spreadsheet de Google Sheets
 
     En el caso de los primeros tres tipos el nombre del archivo lo debes ingresar incluyendo la extensión del mismo, es 
-decir `ejemplo_archivo.csv` o bien `ejemplo_archivo.xlsx`. Para los Google Spreadsheets solo ingresa el nombre del 
+decir `ejemplo_archivo.csv` o bien `ejemplo_archivo.xlsx`. Para los Google Sheets solo ingresa el nombre del 
 archivo, es decir `ejemplo_archivo`. Para conocer más acerca de como modificar los tipos de archivo que puede aceptar 
 esta aplicación ve a la sub sección **Los MIME Type** de esta documentación.
 11. En el script 

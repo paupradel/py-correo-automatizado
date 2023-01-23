@@ -1,11 +1,10 @@
 import io
 import os
-
 from rich import print
 from googleapiclient.http import MediaIoBaseDownload
 
 
-def bajar_datos(nombre, drive):
+def descargar_archivo(nombre, drive):
     """Usando la API de Google Drive bajar un archivo que contenga datos
 
     Parámetros
@@ -13,15 +12,16 @@ def bajar_datos(nombre, drive):
     nombre:     string
                 Nombre del archivo que se quiere obtener de Google Drive
 
-    extension:  string
-                Extensión que corresponde al nombre del archivo que se quiere obtener
-                Los valores aceptados son 'xlsx' o 'csv'
+    drive:      función
+                Llamar al servicio de Google Drive para usar su API, esto se hace en aplicacion.py
 
     Salida
     ------
+    Se descarga el archivo indicado por la variable nombre en la carpeta /datos
 
     """
 
+    # Lista que contiene los MIME TYpe más comunes para convertirse a dataframes de pandas
     mimetypes_spreadsheets = ['text/csv',
                               'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
                               'application/x-vnd.oasis.opendocument.spreadsheet',
@@ -36,7 +36,7 @@ def bajar_datos(nombre, drive):
         path_archivo = os.path.join('datos', nombre + '.xlsx')
 
         with open(path_archivo, 'wb') as archivo:
-            archivo.write(bajar_archivo(request))
+            archivo.write(descargar_datos(request))
         print('[green3]   :arrow_right: Se obtuvo el archivo[/green3] ' +
               '[green3 italic]' + nombre + '.xlsx' + '[/green3 italic]')
 
@@ -45,7 +45,7 @@ def bajar_datos(nombre, drive):
         path_archivo = os.path.join('datos', nombre)
 
         with open(path_archivo, 'wb') as archivo:
-            archivo.write(bajar_archivo(request))
+            archivo.write(descargar_datos(request))
         print('[green3]   :arrow_right: Se obtuvo el archivo[/green3] '
               + '[green3 italic]' + nombre + '[/green3 italic]')
 
@@ -57,6 +57,24 @@ def bajar_datos(nombre, drive):
 
 
 def buscar_archivo(nombre, drive):
+    """Buscar un archivo en Google Drive dado su nombre
+
+    Parámetros
+    ----------
+    nombre:     string
+                Nombre del archivo que se quiere buscar en Google Drive
+
+    drive:      función
+                Llamar al servicio de Google Drive para usar su API, esto se hace en aplicacion.py
+
+    Salida
+    ------
+    mimetaip:   string
+                MIME Type obtenido de los metadatos del archivo buscado y encontrado en Google Drive
+                
+    archivo_id: string
+                Id de Google Drive del archivo buscado y encontrado
+    """
 
     try:
         variable_nombre = 'name=' + '"' + nombre + '"'
@@ -78,8 +96,22 @@ def buscar_archivo(nombre, drive):
     return mimetaip, archivo_id
 
 
-def bajar_archivo(request):
-
+def descargar_datos(request):
+    """Obtener datos del archivo buscado para después ser exportado o descargado directamente dependiendo
+    de su MIME Type en la función 'descargar_archivo'
+    
+    Parámetros
+    ----------
+    request:    response object
+                Datos en respuesta a la petición hecha a la API de Google Drive. Se indica el MIME Type con el que
+                se exporta o descarga el archivo dependiendo de si pertenece al Google Workspace o no
+    
+    Salida
+    ------
+    archivo_obtenido: bytes (datos binarios)
+                      Se obtiene el archivo en formato binario para ser exportado o descargado posteriormente de
+                      acuerdo a su MIME Type
+    """
     archivo_bits = io.BytesIO()
     downloader = MediaIoBaseDownload(archivo_bits, request)
     done = False

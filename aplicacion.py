@@ -9,7 +9,7 @@ from oauth2client import file
 from email.message import EmailMessage
 from rich import print
 
-from servicios.guguldraiv import bajar_datos
+from servicios.guguldraiv import descargar_archivo
 
 print("[bold cyan1]¿Listx para enviar correos automatizados?[/bold cyan1]")
 print("[bold cyan1]¡Pues vamos![/bold cyan1]")
@@ -35,9 +35,9 @@ print("[green3]Autenticación en Google finalizada[/green3]")
 
 print("[green3]Obteniendo archivo con datos[/green3]")
 
-nombre = ''
+# nombre = ''
 # nombre = 'intercambio_dai_2022'
-# nombre = '210802ReporteTendenciaSemanal.pdf'
+nombre = '210802ReporteTendenciaSemanal.pdf'
 # nombre = 'limipio_tiraderos_clandestinos.csv'
 # nombre = 'diccionario_tiraderos_cdmx.xlsx'
 # nombre = 'EsferaGigante.xlsx'
@@ -50,9 +50,7 @@ if nombre == '':
     exit()
 
 
-
-
-bajar_datos(nombre, drive)
+descargar_archivo(nombre, drive)
 
 # datos = 'intercambio_dai_2022.xlsx'
 

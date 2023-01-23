@@ -11,7 +11,7 @@ probablemente me tome dos horas hacerla de un jalón :3. Y pues bien, en el luga
 realizar un intercambio virtual navideño. Soy la encargada de crear un formulario para que las personas registren sus 
 preferencias de regalo y sus datos de contacto. Después también debo de enviar _N_ cantidad de mails para informar a 
 cada persona los resultados del sorteo, direcciones, etc. Así que aprovechando que los resultados del formulario de 
-google arrojan un spreadsheets de datos, se me ocurrió contruir esta aplicación aprovechando las bondades (o no) de las 
+google arrojan un spreadsheets de datos, se me ocurrió construir esta aplicación aprovechando las bondades (o no) de las 
 API's de google.
 
 Seguramente existe una manera más fácil de hacer esto y evitar la programación, pero de cualquier manera **este es un 
@@ -93,10 +93,8 @@ En el script `guguldraiv.py` de la carpeta `servicios` de este proyecto es posib
 _MIME Type_ con los que se exportan o descargan los archivos. Dado que una de las funciones de este 
 proyecto es tener un listado de datos para con ello construir _N_ correos electrónicos, los archivos más comunes que 
 acepta la aplicación son aquellos con extensión .xlsx, .csv, o un Google Sheet. En caso de que el tipo de archivo 
-sea distinto, la aplicación te mandará un mensaje de error para que modifiques 
-
-# Explicar el if del mimetype en caso de que pertenezca a google o no
-
+sea distinto, la aplicación te mandará un mensaje de error para que modifiques el nombre del archivo, esto es 
+referido en el paso _10. de la sección de **_Instalación e Instrucciones_**.
 
 ## Requerimientos
 

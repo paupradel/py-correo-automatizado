@@ -26,6 +26,7 @@ def descargar_archivo(nombre, drive):
                               'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
                               'application/x-vnd.oasis.opendocument.spreadsheet',
                               'application/wps-office.xlsx']
+    path_archivo=''
 
     mimetaip, archivo_id = buscar_archivo(nombre, drive)
 
@@ -51,9 +52,12 @@ def descargar_archivo(nombre, drive):
 
     else:
         print("[red1]   :no_entry:  Este tipo de archivo no es válido D:[/red1]")
-        print("[red1]      Intenta de nuevo con un xlsx o un csv[/red1]")
+        print("[red1]      Intenta de nuevo con un xlsx, csv o un google sheet[/red1]")
         print("")
         print("[magenta3 bold]Baaaiiii, ¡vuelva pronto! :D[/magenta3 bold]")
+        exit()
+
+    return path_archivo
 
 
 def buscar_archivo(nombre, drive):

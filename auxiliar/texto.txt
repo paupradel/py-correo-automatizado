@@ -1,0 +1,32 @@
+'Hola' + nombre_destinatario + 'en el fabulos intercambio de la amistDAI 2023 te tocó regalarle a ' + \
+email_destinatario + '.'
+
+'Sus preferencias de regalo son: '
+
+'- ' + opcion_uno + ' ' + liga_opcion_uno
+'- ' + opcion_dos + ' ' + liga_opcion_uno
+'- ' + opcion_dos + ' ' + liga_opcion_uno
+
+'Los datos para enviar tu regalo son:'
+
+nombre_persona_recibe
+calle_y_numero
+colonia
+municipio_alcaldia
+codigo_postal
+ciudad
+estado
+
+referencia
+
+'Recuerda que abriremos los regalos el viernes 17 de febrero a las 17 hrs, por lo que tu regalo debe de llegar antes ' \
+'de esa fecha. Puedes llevar tu chela, café, awita, papitas, pancito, etc.'
+
+'Gracias personas dai por participar en este ejercicio de convivencia :3'
+
+'Atte Pau Patrol'
+
+'PD1 - Les agradecería que me confirmaran de recibido este correo.'
+
+'PD2 - Este correo fue enviado de manera automática con la fabulosa aplicación que construí para este fin y que pueden ' \
+'chismear acá. Se llama py-correo-automatizado y si le dan una estrellita en github estaría cool'

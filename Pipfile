@@ -8,6 +8,7 @@ pandas = "*"
 rich = "*"
 google-api-python-client = "*"
 oauth2client = "*"
+openpyxl = "*"
 
 [dev-packages]
 

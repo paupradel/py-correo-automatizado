@@ -197,7 +197,7 @@ Esta es una muestra de uno de los correos que se envían con datos simulados de 
 15. Ahora solo resta que ejecutes la aplicación escribiendo `python aplicacion.py`. En la terminal podrás ver el
 progreso de la aplicación y si el envío de los correos fue exitoso.
     
-# Contacto y contribuciones
+## Contacto y contribuciones
 
 Este proyecto está licenciado bajo [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0) por lo que eres libre de 
 contribuir a este software de manera libre mediante 

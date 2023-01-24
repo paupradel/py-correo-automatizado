@@ -1,26 +1,49 @@
 import base64
-import smtplib
-from email.message import EmailMessage
+
+from rich import print
 from email.mime.text import MIMEText
 from googleapiclient.errors import HttpError
 
 
+def enviar_mensaje(gmail, email_destinatario, variable_uno, variable_dos):
+    """Enviar un mensaje de gmail
 
-def enviar_mensaje(gmail):
-    """Enviar un mensaje de gmail"""
+    Parámetros
+    ----------
+    gmail:     función
+               Llamar al servicio de Gmail para usar su API, eso se hace en aplicacion.py
+
+    email_destinatario:  string
+                         dirección de correo electrónico de la persona destinataria
+
+    variable_uno: string
+                  texto a insertar en el cuerpo del correo y que varía dependiendo de email_destinatario
+
+    variable_dos: string
+                  texto a insertar en el cuerpo del correo y que varía dependiendo de email_destinatario
+
+    Salida
+    ------
+
+    enviando_mensaje: Se envía el correo electrónico de acuerdo a los parámetros o se envía un mensaje de error
+                      en caso contrario
+    """
 
     try:
-        cuerpo_msj = """
+        cuerpo_msj = F"""
         <html>
           <body>
-            <p> Esto es un <b>párrafo</b> de prueba </p>
+            <p> Hola <b>{variable_uno}</b>,</p>
+            <p> El artículo de interés es {variable_dos}.</p> 
+            <p> Esto es un <b>correo de prueba.</p>
+            <br>
+            <p> Que tengas buen día :D</p>
           </body>
         </html>"""
 
         mensaje_html = MIMEText(cuerpo_msj, 'html')
-        mensaje_html['To'] = 'pamppsteaching@gmail.com'
-        mensaje_html['From'] = 'pradel.paulina@gmail.com'
-        mensaje_html['Subject'] = 'Probando probando'
+        mensaje_html['To'] = email_destinatario
+        mensaje_html['Subject'] = 'Iterando dos'
 
         mensaje_cifrado = base64.urlsafe_b64encode(mensaje_html.as_bytes()).decode()
 
@@ -30,40 +53,10 @@ def enviar_mensaje(gmail):
 
         enviando_mensaje = (gmail.users().messages().send(userId='me',
                                                           body=crear_mensaje).execute())
-        print(F'Message Id: {enviando_mensaje["id"]}')
+        print(F'[magenta3 ]Mensaje enviado a: {variable_uno}[/magenta3]')
 
     except HttpError as error:
         print(F'Ocurrió un error: {error}')
         enviando_mensaje = None
 
     return enviando_mensaje
-
-
-# def enviar_mensaje(gmail):
-#     """Enviar un mensaje de gmail"""
-#
-#     try:
-#         mensaje = EmailMessage()
-#         mensaje.set_content('Este es un correo automatizado')
-#
-#         mensaje['To'] = 'pamppsteaching@gmail.com'
-#         mensaje['From'] = 'pradel.paulina@gmail.com'
-#         mensaje['Subject'] = 'Probando probando'
-#
-#         mensaje_cifrado = base64.urlsafe_b64encode(mensaje.as_bytes()).decode()
-#
-#         crear_mensaje = {
-#             'raw': mensaje_cifrado
-#         }
-#
-#         enviando_mensaje = (gmail.users().messages().send(userId='me',
-#                                                           body=crear_mensaje).execute())
-#         print(F'Message Id: {enviando_mensaje["id"]}')
-#
-#     except HttpError as error:
-#         print(F'Ocurrió un error: {error}')
-#         enviando_mensaje = None
-#
-#     return enviando_mensaje
-
-

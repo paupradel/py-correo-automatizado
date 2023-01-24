@@ -3,7 +3,7 @@ __pycache__
 
 /servicios/__pycache__/
 /credenciales
-/datos
+/datos/intercambio_dai_2022.xlsx
 
 storage.json
 credenciales.json

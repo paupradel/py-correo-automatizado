@@ -43,7 +43,7 @@ def enviar_mensaje(gmail, email_destinatario, variable_uno, variable_dos):
 
         mensaje_html = MIMEText(cuerpo_msj, 'html')
         mensaje_html['To'] = email_destinatario
-        mensaje_html['Subject'] = 'Iterando dos'
+        mensaje_html['Subject'] = 'Correo de prueba'
 
         mensaje_cifrado = base64.urlsafe_b64encode(mensaje_html.as_bytes()).decode()
 

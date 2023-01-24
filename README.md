@@ -19,7 +19,7 @@ excelente ejercicio para aprender más y mejor acerca de las API de gugul y para
 
 Gracias si llegaste hasta aquí y espero que esta aplicación te sirva o al menos la encuentres curiosa.
 
-### Las API's de Google
+### Las API de Google
 
 Trabajar con las API de Google con Python no es tan directo como uno pensaría. Existen
 [ciertos wrappers](https://github.com/googlearchive/PyDrive) de algunas de ellas que hacen el trabajo más sencillo y

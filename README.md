@@ -1,5 +1,10 @@
 # py-correo-automatizado
 
+![Versión](https://img.shields.io/badge/Versi%C3%B3n-1.0.0-blueviolet)
+![Status](https://img.shields.io/badge/Estatus-estable-yellowgreen)
+[![Python](https://img.shields.io/badge/python-3.10-blue)](https://www.python.org/downloads/release/python-3100/)
+[![Licencia](https://img.shields.io/badge/license-Apache%202.0-green)](https://www.apache.org/licenses/LICENSE-2.0)
+
 Aplicación simple para obtener un archivo remoto por medio de la API de Google Drive, para 
 después importarlo y leerlo como un dataframe de pandas. Los datos de dicho dataframe armarán _N_ cantidad de 
 mensajes de correo electrónico y se enviarán usando la API de Gmail.
